@@ -4,7 +4,7 @@
   // Määritellään steps-taulukko, joka sisältää projektit
   let steps = [
     { name: 'Crypto trading bot', icon: 'fa-solid fa-cart-shopping', href: 'https://t.me/MandaFuturesBOT' },
-    { name: 'New challenges', icon: 'fa-solid fa-list-check', href: '#' },
+    { name: 'New challenges', icon: 'fa-solid fa-list-check', href: '/tools' },
     { name: 'This web diagram', icon: 'fa-solid fa-diagram-project', href: '#' }
   ];
 
@@ -86,7 +86,7 @@
       </Step>
       <Step step={steps[1]}>
         <p>
-          At this moment I am developing a platform specially designed to help cryptocurrency traders, where I will put tools especially dedicated to analyzing the market. <strong class="text-violet-400">The idea is to help traders manage and control capital, minimizing the risk of losses and increasing their profits.</strong>
+          At this moment I am developing on this platform specially designed to help cryptocurrency traders, where I will put tools especially dedicated to analyzing the market. <strong class="text-violet-400">The idea is to help traders manage and control capital, minimizing the risk of losses and increasing their profits.</strong>
           Another of my goals is to continue learning coding and focus on blockchain technology.
         </p>
       </Step>

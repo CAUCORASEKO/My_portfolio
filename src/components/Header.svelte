@@ -4,6 +4,7 @@
   
     export let y;
     export let tabs = [
+      { name: "Home", link: "/" }, // Asegúrate de usar '/' para la ruta raíz
       { name: "Projects ", link: "#projects" },
       { name: "About me", link: "#about" },
       { name: "Github", link: "https://github.com/CAUCORASEKO" },
