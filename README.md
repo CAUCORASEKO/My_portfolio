@@ -58,26 +58,7 @@ To get a local copy up and running, follow these simple steps:
 
 # Project Structure: 
 
-My_portfolio/
-│
-├── src/
-│   ├── routes/
-│   │   ├── +page.svelte
-│   │   ├── about.svelte
-│   │   ├── tools/
-│   │   │   └── +page.svelte
-│   ├── components/
-│   │   ├── Header.svelte
-│   │   ├── Modal.svelte
-│   │   └── Step.svelte
-│   └── modalStore.js
-├── static/
-│   ├── images/
-│   │   └── profile.png
-├── README.md
-├── package.json
-├── svelte.config.js
-└── tailwind.config.cjs
+![Project Structure](static/images/Project%20Structure.png)
 
 
 # Contributing
