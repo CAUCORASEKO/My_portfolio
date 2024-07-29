@@ -1,46 +1,46 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@tailwind base; /* TailwindCSS-perustyylit */
+@tailwind components; /* TailwindCSS-komponenttityylit */
+@tailwind utilities; /* TailwindCSS-apuohjelmatyylit */
 
 html {
-    scroll-behavior: smooth;
+    scroll-behavior: smooth; /* Sileä vieritys, kun käyttäjä siirtyy sivulla */
 }
 
 * {
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', sans-serif; /* Käytetään Roboto-kirjasinta kaikille elementeille */
 }
 
 h1,
 h2,
 h3,
 .poppins {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif; /* Käytetään Poppins-kirjasinta otsikoille ja elementeille, joilla on poppins-luokka */
 }
 
 .blueShadow {
-    box-shadow: 0px 14px 55px rgba(109, 40, 217, 0.45);
+    box-shadow: 0px 14px 55px rgba(109, 40, 217, 0.45); /* Lisää sinisen varjon elementtiin */
 }
 
 .specialSpin {
-    animation: spin 5s linear infinite;
+    animation: spin 5s linear infinite; /* Lisää spin-animaation elementtiin */
 }
 
 @keyframes spin {
     from {
-        transform: rotate(0deg);
+        transform: rotate(0deg); /* Alkuasento: ei kiertoa */
     }
 
     to {
-        transform: rotate(360deg);
+        transform: rotate(360deg); /* Lopetusasento: täysi kierto (360 astetta) */
     }
 }
 
 .blur-load {
-    background-size: cover;
-    background-position: center;
+    background-size: cover; /* Taustakuvan peittäminen */
+    background-position: center; /* Taustakuvan keskittäminen */
 }
 
 .img {
-    object-position: center;
-    object-fit: cover;
+    object-position: center; /* Kuvan sijoittaminen keskelle */
+    object-fit: cover; /* Kuvan leikkaus siten, että se täyttää säiliönsä */
 }

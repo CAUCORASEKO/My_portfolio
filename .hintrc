@@ -1,0 +1,34 @@
+{
+  "extends": [
+    "development"
+  ],
+  "hints": {
+    "axe/text-alternatives": [
+      "default",
+      {
+        "document-title": "off"
+      }
+    ],
+    "no-inline-styles": "off"
+  }
+}
+
+/* 
+Lisäselityksiä:
+
+1. "extends": ["development"]
+   - Tämä asetus laajentaa "development"-profiilia, joka sisältää oletushinttejä kehitysympäristöä varten.
+
+2. "hints":
+   - Määrittää erityisiä sääntöjä (hints) ja niiden asetuksia.
+
+   - "axe/text-alternatives":
+     - Käyttää axe-core-kirjastoa tekstivaihtoehtojen (esim. alt-tekstit kuville) tarkistamiseen.
+     - "default": Oletusasetukset tälle säännölle.
+     - "document-title": "off": Poistaa käytöstä varoituksen tai virheen, joka koskee HTML-dokumentin otsikkoa (title-tag).
+
+   - "no-inline-styles": "off"
+     - Poistaa käytöstä varoituksen tai virheen, joka koskee inline-tyylien käyttöä HTML-dokumenteissa.
+     
+   Nämä asetukset voivat auttaa kehittäjiä löytämään ja korjaamaan ongelmia, jotka liittyvät saavutettavuuteen, selainyhteensopivuuteen ja parhaisiin käytäntöihin web-kehityksessä.
+*/

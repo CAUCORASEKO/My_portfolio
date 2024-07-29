@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* 
+    Selityksiä
+
+    @tailwind base;:
+        Tämä direktiivi tuo sisään TailwindCSS
+        perustyylit, jotka sisältävät nollauksen (reset) ja perustyylit HTML-elementeille. Se auttaa varmistamaan yhtenäisen ulkoasun eri selaimissa.
+
+    @tailwind components;:
+        Tämä direktiivi tuo sisään TailwindCSS
+        komponenttityylit, jotka tarjoavat käyttövalmiita komponentteja, kuten painikkeita, lomakkeita ja muita käyttöliittymäelementtejä. Nämä komponentit ovat helposti muokattavissa TailwindCSS
+        avulla.
+
+    @tailwind utilities;:
+        Tämä direktiivi tuo sisään TailwindCSS
+        apuohjelmatyylit, jotka tarjoavat joukon hyödyllisiä tyylejä, kuten marginaalit, täyttövälit, taustavärit, tekstityylit ja paljon muuta. Nämä tyylit ovat erittäin joustavia ja auttavat rakentamaan responsiivisia ja mukautettavia käyttöliittymiä.
+*/
