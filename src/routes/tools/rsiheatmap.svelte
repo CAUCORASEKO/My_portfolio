@@ -1,13 +1,14 @@
 <script>
   import { onMount } from 'svelte';
   let heatmapUrl = '';
+  let apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
   onMount(async () => {
     try {
-      // Reemplaza 'http://localhost:5000/heatmap' con la URL de tu servidor de Python
-      const response = await fetch('http://localhost:5000/heatmap');
+      const response = await fetch(`${apiBaseUrl}/heatmap`);
       if (response.ok) {
-        heatmapUrl = await response.text(); // URL o contenido del heatmap
+        const blob = await response.blob();
+        heatmapUrl = URL.createObjectURL(blob);
       } else {
         console.error('Error fetching heatmap:', response.status);
       }
@@ -43,3 +44,4 @@
     height: auto;
   }
 </style>
+
