@@ -1,7 +1,7 @@
 # Usa una imagen base de Node.js con Python preinstalado
 FROM node:14
 
-# Instala Python
+# Instala Python y pip
 RUN apt-get update && apt-get install -y python3 python3-pip
 
 # Establece el directorio de trabajo
