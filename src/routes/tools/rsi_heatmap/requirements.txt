@@ -1,6 +1,7 @@
-numpy==1.24.4
+numpy==1.24.3
 tqdm==4.65.0
 pycoingecko==3.1.0
-tradingview_ta==3.3.0
+tradingview-ta==3.3.0
 matplotlib==3.9.0
 pandas==2.2.2
+
