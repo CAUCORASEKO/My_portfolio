@@ -1,17 +1,14 @@
-# Node modules
+.venv
 node_modules
-
-# Build output
+.DS_Store
 /build
 /.svelte-kit
 /package
-
-# Environment variables
 .env
 .env.*
-
-# Python virtual environment
-.venv
+!.env.example
+vite.config.js.timestamp-*
+vite.config.ts.timestamp-*
 
 
 

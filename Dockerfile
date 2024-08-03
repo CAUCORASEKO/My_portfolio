@@ -1,25 +1,27 @@
-# Base image
+# Use an official Python runtime as a parent image
 FROM python:3.11-slim
 
-# Install Node.js and npm
-RUN apt-get update && apt-get install -y nodejs npm
-
-# Set the working directory
+# Set the working directory in the container
 WORKDIR /app
 
-# Copy requirements and install Python dependencies
-COPY src/routes/tools/rsi_heatmap/requirements.txt .
-RUN pip3 install --upgrade pip setuptools
-RUN pip3 install -r requirements.txt
-
-# Copy the entire project into the container
+# Copy the current directory contents into the container at /app
 COPY . .
 
-# Install Node.js dependencies
-RUN npm install
+# Install any needed packages specified in requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Install Node.js (for Svelte)
+RUN apt-get update && \
+    apt-get install -y curl && \
+    curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
+    apt-get install -y nodejs && \
+    npm install
 
 # Build the Svelte app
 RUN npm run build
 
-# Command to run your Svelte app
+# Make port 5000 available to the world outside this container
+EXPOSE 5000
+
+# Run the application
 CMD ["npm", "run", "preview"]
