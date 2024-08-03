@@ -20,5 +20,8 @@ COPY . .
 # Install Node.js dependencies
 RUN npm install
 
+# Build the Svelte app
+RUN npm run build
+
 # Command to run your Svelte app
-CMD ["npm", "run", "start"]
+CMD ["npm", "run", "preview"]
