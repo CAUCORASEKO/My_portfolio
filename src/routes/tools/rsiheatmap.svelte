@@ -1,11 +1,10 @@
 <script>
   import { onMount } from 'svelte';
   let heatmapUrl = '';
-  let apiBaseUrl = import.meta.env.VITE_API_BASE_URL || 'http://localhost:5000';
 
   onMount(async () => {
     try {
-      const response = await fetch(`${apiBaseUrl}/heatmap`);
+      const response = await fetch('/heatmap');
       if (response.ok) {
         const blob = await response.blob();
         heatmapUrl = URL.createObjectURL(blob);
@@ -44,4 +43,3 @@
     height: auto;
   }
 </style>
-
