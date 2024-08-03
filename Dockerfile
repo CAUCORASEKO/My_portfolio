@@ -14,14 +14,17 @@ RUN pip install --no-cache-dir -r requirements.txt
 RUN apt-get update && \
     apt-get install -y curl && \
     curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
-    apt-get install -y nodejs && \
-    npm install
+    apt-get install -y nodejs
+
+# Install Node.js dependencies
+RUN npm install
 
 # Build the Svelte app
 RUN npm run build
 
-# Make port 5000 available to the world outside this container
-EXPOSE 5000
+# Make port 4173 available to the world outside this container
+EXPOSE 4173
 
 # Run the application
 CMD ["npm", "run", "preview"]
+
