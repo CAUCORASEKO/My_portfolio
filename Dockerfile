@@ -21,4 +21,4 @@ COPY . .
 RUN npm install
 
 # Command to run your Svelte app
-CMD ["npm", "run", "dev"]
+CMD ["npm", "run", "start"]
