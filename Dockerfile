@@ -1,5 +1,5 @@
-# Use a base image with Python
-FROM python:3.12-slim
+# Use a base image with Python 3.11
+FROM python:3.11-slim
 
 # Set the working directory
 WORKDIR /app
@@ -8,6 +8,7 @@ WORKDIR /app
 COPY src/routes/tools/rsi_heatmap/requirements.txt .
 
 # Install the dependencies
+RUN pip3 install --upgrade pip setuptools
 RUN pip3 install -r requirements.txt
 
 # Copy the entire project into the container
@@ -18,5 +19,3 @@ RUN npm install
 
 # Command to run your Svelte app
 CMD ["npm", "run", "dev"]
-
-
