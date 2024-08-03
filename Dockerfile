@@ -21,3 +21,4 @@ RUN npm run build
 
 # Comando para ejecutar la aplicación
 CMD ["npm", "run", "start"]
+
