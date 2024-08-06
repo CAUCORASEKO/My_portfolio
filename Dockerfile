@@ -20,9 +20,15 @@ RUN apt-get update && \
 # Build the Svelte app
 RUN npm run build
 
-# Make ports available to the world outside this container
+# Install supervisor
+RUN apt-get install -y supervisor
+
+# Copy supervisor config file
+COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+
+# Expose ports
 EXPOSE 4173
 EXPOSE 5000
 
-# Run the application
+# Run the application using supervisor
 CMD ["supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
