@@ -4,7 +4,8 @@
 
   onMount(async () => {
     try {
-      const response = await fetch('http://localhost:5001/heatmap'); // Asegúrate de que esta URL es correcta
+      const baseUrl = window.location.hostname === 'localhost' ? 'http://localhost:5001' : 'https://web-production-aeda.up.railway.app';
+      const response = await fetch(`${baseUrl}/heatmap`);
       if (response.ok) {
         const blob = await response.blob();
         heatmapUrl = URL.createObjectURL(blob);
@@ -43,3 +44,4 @@
     height: auto;
   }
 </style>
+
