@@ -1,33 +1,32 @@
-# Use an official Python runtime as a parent image
+# Usar una imagen oficial de Python como imagen base
 FROM python:3.11-slim
 
-# Set the working directory in the container
+# Establecer el directorio de trabajo en el contenedor
 WORKDIR /app
 
-# Copy the current directory contents into the container at /app
+# Copiar el contenido del directorio actual en el contenedor en /app
 COPY . .
 
-# Install any needed packages specified in requirements.txt
+# Actualizar apt-get e instalar dependencias necesarias incluyendo distutils
+RUN apt-get update && apt-get install -y curl supervisor python3-distutils
+
+# Instalar las dependencias especificadas en requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install Node.js (for Svelte) and Supervisord
-RUN apt-get update && \
-    apt-get install -y curl supervisor && \
-    curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
+# Instalar Node.js para Svelte
+RUN curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
     apt-get install -y nodejs && \
     npm install
 
-# Build the Svelte app
+# Construir la aplicación Svelte
 RUN npm run build
 
-# Copy supervisor config file
+# Copiar el archivo de configuración de supervisord
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-# Expose ports
+# Exponer los puertos
 EXPOSE 4173
 EXPOSE 5000
 
-# Run the application using supervisor
+# Ejecutar la aplicación usando supervisord
 CMD ["supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
-
-
