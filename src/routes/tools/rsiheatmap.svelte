@@ -4,10 +4,11 @@
 
   onMount(async () => {
     const baseUrl = import.meta.env.PROD
-      ? 'https://cauco.vercel.app'  // URL de producción en Vercel
-      : 'http://localhost:5001';    // URL de desarrollo local
-      // ? 'https://web-production-aeda.up.railway.app'  // URL de producción en Railway (comentado para referencia futura)
-      
+      ? window.location.origin.includes('vercel')
+        ? 'https://cauco.vercel.app'
+        : 'https://web-production-aeda.up.railway.app'
+      : 'http://localhost:5001';
+
     try {
       const response = await fetch(`${baseUrl}/heatmap`);
       if (response.ok) {
@@ -48,5 +49,3 @@
     height: auto;
   }
 </style>
-
-
