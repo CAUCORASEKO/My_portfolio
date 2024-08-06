@@ -3,8 +3,9 @@
   let heatmapUrl = '';
 
   onMount(async () => {
+    const apiUrl = import.meta.env.VITE_API_URL || 'http://localhost:5001';
     try {
-      const response = await fetch(import.meta.env.VITE_HEATMAP_URL || 'http://localhost:5001/heatmap');
+      const response = await fetch(`${apiUrl}/heatmap`);
       if (response.ok) {
         const blob = await response.blob();
         heatmapUrl = URL.createObjectURL(blob);
