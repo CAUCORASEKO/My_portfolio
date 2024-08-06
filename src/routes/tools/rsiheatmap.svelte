@@ -4,8 +4,7 @@
 
   onMount(async () => {
     try {
-      const baseUrl = window.location.hostname === 'localhost' ? 'http://localhost:5001' : 'https://web-production-aeda.up.railway.app';
-      const response = await fetch(`${baseUrl}/heatmap`);
+      const response = await fetch(import.meta.env.VITE_HEATMAP_URL || 'http://localhost:5001/heatmap');
       if (response.ok) {
         const blob = await response.blob();
         heatmapUrl = URL.createObjectURL(blob);
@@ -44,4 +43,3 @@
     height: auto;
   }
 </style>
-
