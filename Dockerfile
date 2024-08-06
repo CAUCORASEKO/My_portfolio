@@ -10,18 +10,15 @@ COPY . .
 # Install any needed packages specified in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Install Node.js (for Svelte)
+# Install Node.js (for Svelte) and Supervisord
 RUN apt-get update && \
-    apt-get install -y curl && \
+    apt-get install -y curl supervisor && \
     curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
     apt-get install -y nodejs && \
     npm install
 
 # Build the Svelte app
 RUN npm run build
-
-# Install supervisor
-RUN apt-get install -y supervisor
 
 # Copy supervisor config file
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
