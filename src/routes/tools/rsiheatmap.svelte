@@ -2,8 +2,18 @@
   import { onMount } from 'svelte';
   let heatmapUrl = '';
 
-  onMount(() => {
-    heatmapUrl = 'http://localhost:5000/heatmap'; // URL to the Flask endpoint
+  onMount(async () => {
+    try {
+      const response = await fetch('http://localhost:5001/heatmap'); // Asegúrate de que esta URL es correcta
+      if (response.ok) {
+        const blob = await response.blob();
+        heatmapUrl = URL.createObjectURL(blob);
+      } else {
+        console.error('Error fetching heatmap:', response.status);
+      }
+    } catch (error) {
+      console.error('Fetch error:', error);
+    }
   });
 </script>
 
@@ -33,4 +43,3 @@
     height: auto;
   }
 </style>
-
