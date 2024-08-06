@@ -4,7 +4,8 @@
 
   onMount(async () => {
     const baseUrl = import.meta.env.PROD
-      ? 'https://tu-url-de-railway.app'
+      ? 'https://cauco.vercel.app/'
+
       : 'http://localhost:5001';
     try {
       const response = await fetch(`${baseUrl}/heatmap`);
