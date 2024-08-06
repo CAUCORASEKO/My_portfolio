@@ -5,6 +5,8 @@ tradingview-ta==3.3.0
 matplotlib==3.9.0
 pandas==2.2.2
 flask==3.0.3
+gunicorn==20.1.0
+
 
 
 
