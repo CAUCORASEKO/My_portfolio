@@ -29,3 +29,4 @@ EXPOSE 5000
 
 # Run the application using supervisor
 CMD ["supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
+
