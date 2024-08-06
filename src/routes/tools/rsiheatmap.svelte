@@ -4,9 +4,10 @@
 
   onMount(async () => {
     const baseUrl = import.meta.env.PROD
-      ? 'https://cauco.vercel.app/'
-
-      : 'http://localhost:5001';
+      ? 'https://cauco.vercel.app'  // URL de producción en Vercel
+      : 'http://localhost:5001';    // URL de desarrollo local
+      // ? 'https://web-production-aeda.up.railway.app'  // URL de producción en Railway (comentado para referencia futura)
+      
     try {
       const response = await fetch(`${baseUrl}/heatmap`);
       if (response.ok) {
@@ -20,4 +21,32 @@
     }
   });
 </script>
+
+<main class="widget-container">
+  <h1>RSI Heatmap</h1>
+  {#if heatmapUrl}
+    <img src={heatmapUrl} alt="RSI Heatmap" />
+  {:else}
+    <p>Loading heatmap...</p>
+  {/if}
+</main>
+
+<style>
+  .widget-container {
+    padding: 20px;
+    background-color: #1f1f1f;
+    border-radius: 8px;
+    color: #ffffff;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+</style>
+
 
