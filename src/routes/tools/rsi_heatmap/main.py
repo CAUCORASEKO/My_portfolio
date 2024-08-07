@@ -1,12 +1,14 @@
 import matplotlib.pyplot as plt
 import numpy as np
 from flask import Flask, send_file
+from flask_cors import CORS
 from data import get_closest_to_24h, get_RSI, get_top_vol_coins
 import io
 
 plt.switch_backend('Agg')  # Use 'Agg' backend for Matplotlib
 
 app = Flask(__name__)
+CORS(app)  # Habilita CORS para todas las rutas
 
 FIGURE_SIZE = (12, 10)
 BACKGROUND_COLOR = "#0d1117"
@@ -181,5 +183,4 @@ def serve_heatmap():
     return send_file(buf, mimetype='image/png')
 
 if __name__ == "__main__":
-    app.run(host='0.0.0.0', port=5000)
-
+    app.run(host='0.0.0.0', port=5001)

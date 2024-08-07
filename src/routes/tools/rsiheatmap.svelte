@@ -3,14 +3,8 @@
   let heatmapUrl = '';
 
   onMount(async () => {
-    const baseUrl = import.meta.env.PROD
-      ? window.location.origin.includes('vercel')
-        ? 'https://cauco.vercel.app'
-        : 'https://web-production-aeda.up.railway.app'
-      : 'http://localhost:5001';
-
     try {
-      const response = await fetch(`${baseUrl}/heatmap`);
+      const response = await fetch('http://localhost:5001/heatmap');
       if (response.ok) {
         const blob = await response.blob();
         heatmapUrl = URL.createObjectURL(blob);
