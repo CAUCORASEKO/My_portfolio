@@ -27,11 +27,4 @@ RUN npm run build
 RUN apt-get install -y supervisor
 
 # Copy Supervisor config file
-COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
-
-# Expose ports
-EXPOSE 4173
-EXPOSE 5001
-
-# Run Supervisor
-CMD ["supervisord", "-c", "/etc/supervisor/supervisord.conf"]
+COPY supervisord.conf /etc/supervisor/co
