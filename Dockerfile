@@ -7,12 +7,15 @@ WORKDIR /app
 # Copy the current directory contents into the container at /app
 COPY . .
 
-# Install any needed packages specified in requirements.txt
+# Install build dependencies
+RUN apt-get update && apt-get install -y build-essential
+
+# Install Python dependencies
+RUN pip install --upgrade pip setuptools wheel
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Install Node.js (for Svelte)
-RUN apt-get update && \
-    apt-get install -y curl && \
+RUN apt-get install -y curl && \
     curl -fsSL https://deb.nodesource.com/setup_16.x | bash - && \
     apt-get install -y nodejs && \
     npm install
