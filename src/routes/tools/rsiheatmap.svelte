@@ -4,7 +4,7 @@
 
   onMount(async () => {
     try {
-      const response = await fetch('http://localhost:5001/heatmap');
+      const response = await fetch('http://localhost:5002/heatmap');
       if (response.ok) {
         const blob = await response.blob();
         heatmapUrl = URL.createObjectURL(blob);
