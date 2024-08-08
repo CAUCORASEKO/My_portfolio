@@ -92,7 +92,7 @@
       </Step>
       <Step step={steps[2]}>
         <p>
-          If you want to see how I have come to develop this portfolio, you can check out the simple diagram made in Draw.io. <strong class="text-violet-400">It is not a piece of architecture worth framing but it is a good way to start organizing your ideas in case you want to start your own portfolio website.</strong>
+          If you want to see how I developed this portfolio, check out the detailed diagram I created in Figma. <strong class="text-violet-400">While it's not a masterpiece, it's a great way to start organizing your ideas if you're planning to create your own portfolio website.</strong>
           Constructive criticism is always welcome.
         </p>
       </Step>
