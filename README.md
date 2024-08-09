@@ -38,7 +38,6 @@ To get a local copy up and running, follow these simple steps:
 
     Clone the repository:
 
-  
 
 git clone https://github.com/CAUCORASEKO/My_portfolio.git
 cd My_portfolio
@@ -63,11 +62,11 @@ Usage
     Navigate the Site: Explore different sections like Projects, About Me, and more.
     Crypto Trading Bot: Access the bot via the provided Telegram link.
     Tools Page: Find tools for analyzing the cryptocurrency market.
-    RSI Heatmap: The heatmap is accessible within the project at http://localhost:5173/.
+    RSI Heatmap: The heatmap is accessible within the project at http://localhost:5173.
 
 Project Structure
 
-plaintext
+lua
 
 |-- src
 |   |-- components
@@ -98,16 +97,16 @@ License
 This project is licensed under the MIT License.
 Resources
 
-    Init SvelteKit w. TailwindCSS: https://tailwindcss.com/docs/guides/sveltekit
-    Google Fonts: https://fonts.google.com/
-    Font Awesome CDN: https://cdnjs.com/libraries/font-awesome
-    Font Awesome Icons: https://fontawesome.com/icons
+    Init SvelteKit w. TailwindCSS: TailwindCSS Guide
+    Google Fonts: Google Fonts
+    Font Awesome CDN: Font Awesome CDN
+    Font Awesome Icons: Font Awesome Icons
 
 Steps to Restart the Project After Reboot
 
     Open Terminal and navigate to your project directory:
 
-    bash
+    
 
 cd ~/Desktop/My_portfolio
 
@@ -119,9 +118,9 @@ Build the Docker image (if needed):
 
     If you haven't built the Docker image yet or if there have been changes, build the image:
 
+    
 
-
-docker build -t my_svelte_app .
+    docker build -t my_svelte_app .
 
 Run the Docker container:
 
@@ -138,14 +137,15 @@ Run the Docker container:
 Troubleshooting Tips
 
     Check Docker Status:
-        Make sure Docker is running. If you encounter issues, restart Docker Desktop.
+    Make sure Docker is running. If you encounter issues, restart Docker Desktop.
 
     Check Logs:
+
         If the application is not running as expected, check the Docker container logs:
 
-  
+      
 
-docker logs <container_id>
+    docker logs <container_id>
 
 Port Conflicts:
 
