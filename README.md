@@ -38,20 +38,20 @@ To get a local copy up and running, follow these simple steps:
 
     Clone the repository:
 
-    bash
+  
 
 git clone https://github.com/CAUCORASEKO/My_portfolio.git
 cd My_portfolio
 
 Install dependencies:
 
-bash
+
 
 npm install --legacy-peer-deps
 
 Start the development server:
 
-bash
+
 
     npm run dev
 
@@ -98,10 +98,10 @@ License
 This project is licensed under the MIT License.
 Resources
 
-    Init SvelteKit w. TailwindCSS: TailwindCSS Guide
-    Google Fonts: Google Fonts
-    Font Awesome CDN: Font Awesome CDN
-    Font Awesome Icons: Font Awesome Icons
+    Init SvelteKit w. TailwindCSS: https://tailwindcss.com/docs/guides/sveltekit
+    Google Fonts: https://fonts.google.com/
+    Font Awesome CDN: https://cdnjs.com/libraries/font-awesome
+    Font Awesome Icons: https://fontawesome.com/icons
 
 Steps to Restart the Project After Reboot
 
@@ -119,13 +119,13 @@ Build the Docker image (if needed):
 
     If you haven't built the Docker image yet or if there have been changes, build the image:
 
-bash
+
 
 docker build -t my_svelte_app .
 
 Run the Docker container:
 
-bash
+
 
     docker run -p 8081:4173 -p 5002:5001 my_svelte_app
 
@@ -143,7 +143,7 @@ Troubleshooting Tips
     Check Logs:
         If the application is not running as expected, check the Docker container logs:
 
-    bash
+  
 
 docker logs <container_id>
 
