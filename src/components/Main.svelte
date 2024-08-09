@@ -5,7 +5,7 @@
   let steps = [
     { name: 'Crypto trading bot', icon: 'fa-solid fa-cart-shopping', href: 'https://t.me/MandaFuturesBOT' },
     { name: 'New challenges', icon: 'fa-solid fa-list-check', href: '/tools' },
-    { name: 'This web diagram', icon: 'fa-solid fa-diagram-project', href: '#' }
+    { name: 'This web diagram', icon: 'fa-solid fa-diagram-project', href: 'https://github.com/CAUCORASEKO/My_portfolio/wiki/Project-Wireframe-and-Design-Planning' }
   ];
 
   // Määritellään benefits-taulukko, joka sisältää tiedot taidoista
