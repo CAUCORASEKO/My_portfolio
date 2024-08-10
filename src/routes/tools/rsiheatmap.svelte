@@ -4,7 +4,7 @@
   // Tässä määritellään API:n perus-URL-osoite.
   // Jos ympäristömuuttuja 'VITE_BACKEND_URL' on määritetty, sitä käytetään.
   // Muussa tapauksessa käytetään oletuksena 'http://localhost:5002' paikalliseen kehitykseen.
-  let heatmapUrl = 'https://cauco.up.railway.app/';
+  let heatmapUrl = '';
   let apiBaseUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5002';
 
   // Tämä koodi suoritetaan, kun komponentti on ladattu.
@@ -17,10 +17,10 @@
         const blob = await response.blob();
         heatmapUrl = URL.createObjectURL(blob);
       } else {
-        console.error('Virhe heatmapin haussa:', response.status);
+        console.error('Error in heatmap search:', response.status);
       }
     } catch (error) {
-      console.error('Virhe hakupyynnössä:', error);
+      console.error('Error in search request:', error);
     }
   });
 </script>
@@ -32,7 +32,7 @@
     <img src={heatmapUrl} alt="RSI Heatmap" />
   {:else}
     <!-- Näytetään latausviesti, kunnes heatmap on haettu. -->
-    <p>Ladataan heatmapia...</p>
+    <p>Loading heatmap...</p>
   {/if}
 </main>
 
