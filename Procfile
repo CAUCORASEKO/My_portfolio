@@ -1,3 +1,4 @@
-web: gunicorn src.routes.tools.rsi_heatmap.main:app
+web: gunicorn --bind 0.0.0.0:$PORT main:app
+
 
 
