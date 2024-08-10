@@ -2,8 +2,14 @@
   import { onMount } from 'svelte';
 
   let heatmapUrl = '';
-  // Usa la URL base de la API desde una variable de entorno, o por defecto a localhost si no está definida
-  let apiBaseUrl = import.meta.env.VITE_BACKEND_URL || 'http://127.0.0.1:5000';
+  let apiBaseUrl = ''; 
+
+  // Determina si está en producción o desarrollo
+  if (import.meta.env.PROD) {
+    apiBaseUrl = 'https://cauco.up.railway.app';
+  } else {
+    apiBaseUrl = 'http://127.0.0.1:5000';
+  }
 
   onMount(async () => {
     try {
