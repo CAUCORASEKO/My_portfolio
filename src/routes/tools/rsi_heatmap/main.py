@@ -10,12 +10,8 @@ plt.switch_backend('Agg')  # Käytetään 'Agg'-taustajärjestelmää Matplotlib
 
 app = Flask(__name__)
 
-# Sallitut CORS-alkuperät: localhost kehitystä varten ja Railway-tuotanto
-allowed_origins = [
-    "http://localhost:5173",  # Viten kehitysportti
-    "https://cauco.up.railway.app/tools"
-]
-CORS(app, resources={r"/*": {"origins": allowed_origins}})
+# Configuración de CORS para permitir solicitudes desde cualquier origen
+CORS(app)
 
 # Perusasetukset heatmapin luontiin
 FIGURE_SIZE = (12, 10)
@@ -196,5 +192,5 @@ def serve_heatmap():
 
 # Sovelluksen pääkäynnistys
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5002))
+    port = int(os.environ.get("PORT", 5000))
     app.run(host='0.0.0.0', port=port)
