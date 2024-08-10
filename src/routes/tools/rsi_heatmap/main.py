@@ -8,7 +8,8 @@ import io
 plt.switch_backend('Agg')  # Use 'Agg' backend for Matplotlib
 
 app = Flask(__name__)
-CORS(app)  # Habilita CORS para todas las rutas
+CORS(app, resources={r"/*": {"origins": "https://cauco.up.railway.app"}})
+  # Habilita CORS para todas las rutas
 
 FIGURE_SIZE = (12, 10)
 BACKGROUND_COLOR = "#0d1117"

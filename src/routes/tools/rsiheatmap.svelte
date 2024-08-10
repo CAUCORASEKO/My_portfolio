@@ -1,10 +1,11 @@
 <script>
   import { onMount } from 'svelte';
   let heatmapUrl = '';
+  let apiBaseUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5002';
 
   onMount(async () => {
     try {
-      const response = await fetch('http://localhost:5002/heatmap');
+      const response = await fetch(`${apiBaseUrl}/heatmap`);
       if (response.ok) {
         const blob = await response.blob();
         heatmapUrl = URL.createObjectURL(blob);
