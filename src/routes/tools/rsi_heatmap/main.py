@@ -6,14 +6,15 @@ import matplotlib.pyplot as plt
 import numpy as np
 from data import get_closest_to_24h, get_RSI, get_top_vol_coins
 
-plt.switch_backend('Agg')  # Käytetään 'Agg'-taustajärjestelmää Matplotlibille
+# Usar backend 'Agg' para Matplotlib para evitar problemas de visualización
+plt.switch_backend('Agg')
 
 app = Flask(__name__)
 
 # Configuración de CORS para permitir solicitudes desde cualquier origen
-CORS(app)
+CORS(app)  # Esto permite solicitudes desde cualquier origen, lo cual es adecuado en este caso.
 
-# Perusasetukset heatmapin luontiin
+# Configuraciones para la creación del heatmap
 FIGURE_SIZE = (12, 10)
 BACKGROUND_COLOR = "#0d1117"
 RANGES = {
@@ -38,14 +39,14 @@ SCATTER_COLORS = {
     "Overbought": "#cf2f3d",
 }
 
-# Funktio, joka valitsee oikean värin RSI-arvon perusteella
+# Función que selecciona el color apropiado basado en el valor RSI
 def get_color_for_rsi(rsi_value: float) -> dict:
     for label, (low, high) in RANGES.items():
         if low <= rsi_value < high:
             return SCATTER_COLORS[label]
     return None
 
-# Funktio, joka luo ja palauttaa RSI heatmapin
+# Función que crea y retorna el heatmap RSI
 def plot_rsi_heatmap(num_coins: int = 100, time_frame: str = "1d") -> io.BytesIO:
     top_vol = get_top_vol_coins(num_coins)
     rsi_data = get_RSI(top_vol, time_frame=time_frame)
@@ -149,7 +150,7 @@ def plot_rsi_heatmap(num_coins: int = 100, time_frame: str = "1d") -> io.BytesIO
     plt.close(fig)
     return buf
 
-# Funktio, joka lisää selitteen kuvaajaan
+# Función que agrega la leyenda al gráfico
 def add_legend(ax: plt.Axes) -> None:
     adjusted_colors = list(COLORS_LABELS.values())
     adjusted_colors[2] = "#808080"
@@ -184,13 +185,13 @@ def add_legend(ax: plt.Axes) -> None:
 
     plt.subplots_adjust(left=0.05, right=0.95, top=0.875, bottom=0.1)
 
-# Flask-reitti, joka palvelee heatmap-kuvan
+# Ruta de Flask que sirve la imagen del heatmap
 @app.route('/heatmap')
 def serve_heatmap():
     buf = plot_rsi_heatmap(num_coins=100, time_frame="1d")
     return send_file(buf, mimetype='image/png')
 
-# Sovelluksen pääkäynnistys
+# Inicio de la aplicación
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000))
+    port = int(os.environ.get("PORT", 5000))  # Railway establecerá el puerto automáticamente
     app.run(host='0.0.0.0', port=port)
