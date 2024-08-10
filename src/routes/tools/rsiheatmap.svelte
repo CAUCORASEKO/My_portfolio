@@ -5,7 +5,7 @@
   // Jos ympäristömuuttuja 'VITE_BACKEND_URL' on määritetty, sitä käytetään.
   // Muussa tapauksessa käytetään oletuksena 'http://localhost:5002' paikalliseen kehitykseen.
   let heatmapUrl = '';
-  let apiBaseUrl = import.meta.env.VITE_BACKEND_URL || 'https://cauco.up.railway.app';
+  let apiBaseUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5002';
 
   // Tämä koodi suoritetaan, kun komponentti on ladattu.
   onMount(async () => {
