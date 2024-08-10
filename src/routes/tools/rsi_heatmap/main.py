@@ -13,7 +13,7 @@ app = Flask(__name__)
 # Sallitut CORS-alkuperät: localhost kehitystä varten ja Railway-tuotanto
 allowed_origins = [
     "http://localhost:5173",  # Viten kehitysportti
-    "https://cauco.up.railway.app"
+    "https://cauco.up.railway.app/heatmap"
 ]
 CORS(app, resources={r"/*": {"origins": allowed_origins}})
 
