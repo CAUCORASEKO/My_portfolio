@@ -2,14 +2,7 @@
   import { onMount } from 'svelte';
 
   let heatmapUrl = '';
-  let apiBaseUrl = ''; 
-
-  // Determina si está en producción o desarrollo
-  if (import.meta.env.PROD) {
-    apiBaseUrl = 'https://cauco.up.railway.app';
-  } else {
-    apiBaseUrl = 'http://127.0.0.1:5000';
-  }
+  let apiBaseUrl = import.meta.env.VITE_BACKEND_URL || 'https://cauco.up.railway.app';
 
   onMount(async () => {
     try {
