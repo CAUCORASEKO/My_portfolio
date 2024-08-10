@@ -1,19 +1,14 @@
 <script>
   import { onMount } from 'svelte';
 
-  // Tässä määritellään API:n perus-URL-osoite.
-  // Jos ympäristömuuttuja 'VITE_BACKEND_URL' on määritetty, sitä käytetään.
-  // Muussa tapauksessa käytetään oletuksena 'http://localhost:5002' paikalliseen kehitykseen.
   let heatmapUrl = '';
-  let apiBaseUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5002';
+  // Usa la URL base de la API desde una variable de entorno, o por defecto a localhost si no está definida
+  let apiBaseUrl = import.meta.env.VITE_BACKEND_URL || 'http://127.0.0.1:5000';
 
-  // Tämä koodi suoritetaan, kun komponentti on ladattu.
   onMount(async () => {
     try {
-      // Tehdään pyyntö API:lle heatmap-kuvan hakemiseksi.
       const response = await fetch(`${apiBaseUrl}/heatmap`);
       if (response.ok) {
-        // Jos pyyntö onnistuu, vastaus muunnetaan blob-muotoon ja luodaan väliaikainen URL-osoite.
         const blob = await response.blob();
         heatmapUrl = URL.createObjectURL(blob);
       } else {
@@ -28,10 +23,8 @@
 <main class="widget-container">
   <h1>RSI Heatmap</h1>
   {#if heatmapUrl}
-    <!-- Näytetään heatmap-kuva, jos URL on saatavilla. -->
     <img src={heatmapUrl} alt="RSI Heatmap" />
   {:else}
-    <!-- Näytetään latausviesti, kunnes heatmap on haettu. -->
     <p>Loading heatmap...</p>
   {/if}
 </main>
