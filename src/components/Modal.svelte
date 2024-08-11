@@ -52,7 +52,7 @@
         <h2 class="text-xl mb-4 text-gray-900">Thank You!</h2>
         <p class="text-gray-700">Your message has been sent successfully. We'll get back to you soon.</p>
       {:else}
-        <h2 class="text-xl mb-4 text-gray-900">Get in Touch</h2>
+        <h2 class="text-xl mb-4 text-gray-900">Request</h2>
         <form on:submit={handleSubmit}>
           <div class="mb-4">
             <label for="name" class="block text-sm font-medium text-gray-700">First Name</label>
