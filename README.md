@@ -150,6 +150,75 @@ Using supervisord provides the following benefits:
     Logging: Centralized logging makes it easy to track the output and errors of both the Svelte and Flask applications.
     Scalability: With Gunicorn managing multiple workers for the Flask app, the system can handle multiple requests concurrently, improving performance.
 
+    
+    ## JSON Configuration Files
+
+### package.json
+
+The `package.json` file is a key file in any Node.js project that defines the project's details, manages dependencies, and scripts. Below is an explanation of each section in our `package.json`:
+
+```json
+{
+  "name": "cauco",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "vite dev --host",
+    "build": "vite build",
+    "preview": "vite preview --host",
+    "start": "node build",
+    "start:railway": "vite preview --host 0.0.0.0 --port $PORT"
+  },
+  "devDependencies": {
+    "@sveltejs/adapter-auto": "^2.0.0",
+    "@sveltejs/kit": "^1.30.0",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.39",
+    "svelte": "^4.0.5",
+    "tailwindcss": "^3.4.6",
+    "vite": "^4.4.2"
+  },
+  "dependencies": {
+    "@sveltejs/adapter-node": "^5.2.0",
+    "chart.js": "^4.4.3",
+    "mdn-data": "^2.9.0",
+    "nodemailer": "^6.9.14"
+  },
+  "type": "module"
+}
+
+    name: The name of the project.
+
+    version: The version of the project.
+
+    private: If set to true, it prevents the project from being accidentally published to the npm registry.
+
+    scripts: Defines commands that you can run from the command line using npm run <script>. In this project:
+        dev: Starts the Vite development server in host mode.
+        build: Compiles the project into a production-optimized format.
+        preview: Previews the production build.
+        start: Starts the application using Node.js.
+        start:railway: Configures and launches the application on Railway with the necessary options for deployment.
+
+    devDependencies: Dependencies required only for project development. It includes tools like Vite, Svelte, TailwindCSS, and PostCSS.
+
+    dependencies: Dependencies required for the project to run in production. It includes adapters for Svelte, libraries like Chart.js, and Nodemailer for sending emails.
+
+    type: Indicates that the project uses ECMAScript modules, instead of CommonJS modules.
+
+package-lock.json
+
+The package-lock.json file is automatically generated when you run npm install in a project. This file ensures that dependencies are installed in the same way across all machines by locking the exact versions of each package and its sub-dependencies.
+
+This file includes:
+
+    version: The version of the package-lock.json schema.
+    requires: Indicates if the package requires other dependencies.
+    dependencies: A detailed list of each dependency, including its version, integrity, and the versions of its sub-dependencies.
+
+The package-lock.json is crucial for maintaining a consistent development environment, ensuring that all developers and deployment environments use the same versions of the project’s dependencies.
+
+
 Project Structure
 
 lua
