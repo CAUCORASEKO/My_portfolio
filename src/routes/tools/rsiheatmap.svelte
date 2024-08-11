@@ -1,26 +1,23 @@
 <script>
   import { onMount } from 'svelte';
 
-  // Määritä API:n perus-URL-osoite
-  // Tarkista ympäristömuuttuja 'VITE_BACKEND_URL', joka pitäisi olla määritetty Railway:ssa
-  // Jos sitä ei ole asetettu, käytetään oletuksena paikallista kehitysympäristöä 'http://localhost:5002'.
-  let heatmapUrl = '';
-  let apiBaseUrl = import.meta.env.VITE_BACKEND_URL || 'http://localhost:5002';
+  // Establece la URL del heatmap directamente
+  let heatmapUrl = 'https://rsiheatmap-production.up.railway.app/';
 
-  // Suorita tämä koodi, kun komponentti on ladattu
+  // Ejecuta este código cuando el componente se haya montado
   onMount(async () => {
     try {
-      // Tee pyyntö API:lle saadaksesi heatmap-kuvan
-      const response = await fetch(`${apiBaseUrl}/heatmap`);
+      // Realiza una solicitud para obtener la imagen del heatmap
+      const response = await fetch(heatmapUrl);
       if (response.ok) {
-        // Jos pyyntö onnistuu, muunna vastaus blob-muotoon ja luo väliaikainen URL
+        // Si la solicitud es exitosa, convierte la respuesta a blob y crea una URL temporal
         const blob = await response.blob();
         heatmapUrl = URL.createObjectURL(blob);
       } else {
-        console.error('Virhe heatmapin haussa:', response.status);
+        console.error('Error al obtener el heatmap:', response.status);
       }
     } catch (error) {
-      console.error('Virhe hakupyynnössä:', error);
+      console.error('Error en la solicitud:', error);
     }
   });
 </script>
@@ -28,11 +25,11 @@
 <main class="widget-container">
   <h1>RSI Heatmap</h1>
   {#if heatmapUrl}
-    <!-- Näytä heatmap-kuva, jos URL on saatavilla -->
+    <!-- Muestra la imagen del heatmap si la URL está disponible -->
     <img src={heatmapUrl} alt="RSI Heatmap" />
   {:else}
-    <!-- Näytä latausviesti, kunnes heatmap on haettu -->
-    <p>Ladataan heatmapia...</p>
+    <!-- Muestra un mensaje de carga hasta que se obtenga el heatmap -->
+    <p>Cargando heatmap...</p>
   {/if}
 </main>
 
@@ -53,4 +50,3 @@
     height: auto;
   }
 </style>
-
