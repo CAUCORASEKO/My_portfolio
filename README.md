@@ -10,6 +10,7 @@ Welcome to my personal portfolio website! This project showcases my skills, proj
 - Setup and Installation
 - Usage
 - Project Structure
+- RSI Heatmap Integration
 - Contributing
 - Contact
 - License
@@ -40,49 +41,57 @@ This portfolio highlights my expertise in full-stack development, design, and co
 To get a local copy up and running, follow these simple steps:
 
 1. **Clone the repository**:
-    
-    git clone https://github.com/CAUCORASEKO/My_portfolio.git
-    cd My_portfolio
+   
+   
+   git clone https://github.com/CAUCORASEKO/My_portfolio.git
+   cd My_portfolio
+
+    Install dependencies:
+
    
 
-2. **Install dependencies**:
-   
-    npm install --legacy-peer-deps
-   
+npm install --legacy-peer-deps
 
-3. **Start the development server**:
-    
+Start the development server:
+
+
+
     npm run dev
-    
 
-4. **Access the application**:
-    - For the Svelte application: [http://localhost:5173](http://localhost:5173)
+    Access the application:
+        For the Svelte application: http://localhost:5173
 
-## Usage
+Usage
 
-- **Navigate the Site**: Explore different sections like Projects, About Me, and more.
-- **Crypto Trading Bot**: Access the bot via the provided Telegram link.
-- **Tools Page**: Find tools for analyzing the cryptocurrency market.
-- **RSI Heatmap**: The heatmap is accessible within the project at [http://localhost:5173/tools](http://localhost:5173/tools).
+    Navigate the Site: Explore different sections like Projects, About Me, and more.
+    Crypto Trading Bot: Access the bot via the provided Telegram link.
+    Tools Page: Find tools for analyzing the cryptocurrency market.
+    RSI Heatmap: The heatmap is accessible within the project at http://localhost:5173/tools.
 
-### RSI Heatmap Integration
+RSI Heatmap Integration
 
-The RSI Heatmap feature is integrated into the Tools section of the portfolio. It leverages a Flask backend to generate real-time heatmaps of the Relative Strength Index (RSI) for top cryptocurrencies. Here’s a brief overview of the integration process:
+The RSI Heatmap feature is integrated into the Tools section of the portfolio. It leverages a Flask backend to generate real-time heatmaps of the Relative Strength Index (RSI) for top cryptocurrencies. Below is an overview of the integration process:
+1. Backend Deployment
 
-1. **Backend Deployment**:
-    - The RSI heatmap backend was deployed using Flask and is hosted on [Railway](https://railway.app).
-    - The backend generates the RSI heatmap image, which the Svelte frontend fetches and displays.
+The RSI heatmap backend is deployed using Flask and hosted on Railway. The backend generates the RSI heatmap image, which the Svelte frontend fetches and displays.
+2. Frontend Integration
 
-2. **Frontend Integration**:
-    - In the `tools.svelte` file, a fetch request is made to the deployed backend to retrieve the heatmap image. The image is then dynamically displayed in the Svelte application.
+In the tools.svelte file, a fetch request is made to the deployed backend to retrieve the heatmap image. The image is then dynamically displayed in the Svelte application.
+3. CORS Configuration
 
-3. **CORS Configuration**:
-    - To allow the frontend to request resources from the backend hosted on a different domain, we enabled Cross-Origin Resource Sharing (CORS) in the Flask backend.
+To allow the frontend to request resources from the backend hosted on a different domain, Cross-Origin Resource Sharing (CORS) was enabled in the Flask backend. This ensures that requests from the Svelte frontend are permitted.
+4. Modifications
 
-4. **Modifications**:
-    - The original RSI heatmap code was adapted to fit our specific deployment needs, including path adjustments for image saving and CORS handling.
+The original RSI heatmap code was adapted to fit our specific deployment needs, including:
 
-## Project Structure
+    Path adjustments: Modified the path for saving and serving the image to ensure compatibility with the Railway hosting environment.
+    CORS handling: Added CORS headers to the Flask backend to allow cross-origin requests from the Svelte application.
+
+5. Credit
+
+This RSI heatmap implementation is based on the work of Stephan Akkerman. You can find the original repository here.
+Project Structure
+
 
 
 |-- src
@@ -113,29 +122,26 @@ License
 
 This project is licensed under the MIT License.
 
-Resources
+Resources ( Search on Google )
 
     Init SvelteKit w. TailwindCSS: TailwindCSS Guide
     Google Fonts: Google Fonts
     Font Awesome CDN: Font Awesome CDN
     Font Awesome Icons: Font Awesome Icons
-    Particles js: https://cdnjs.com/libraries/particles.js
+    Particles js: Particles.js
 
 Steps to Restart the Project After Reboot
 
     Open Terminal and navigate to your project directory:
 
-   
+    
 
 cd ~/Desktop/My_portfolio
 
 Start Docker:
-
-    Make sure Docker Desktop is running. If it's not, start Docker Desktop from your applications.
+Make sure Docker Desktop is running. If it's not, start Docker Desktop from your applications.
 
 Build the Docker image (if needed):
-
-    If you haven't built the Docker image yet or if there have been changes, build the image:
 
 
 
@@ -156,15 +162,14 @@ Run the Docker container:
 Troubleshooting Tips
 
     Check Docker Status:
-        Make sure Docker is running. If you encounter issues, restart Docker Desktop.
+    Make sure Docker is running. If you encounter issues, restart Docker Desktop.
 
     Check Logs:
-        If the application is not running as expected, check the Docker container logs:
+    If the application is not running as expected, check the Docker container logs:
 
-  
+    
 
-    docker logs <container_id>
+docker logs <container_id>
 
-    Port Conflicts:
-        Ensure no other services are running on ports 8081 or 5002. Use lsof -i :<port> to check and kill -9 <PID> to stop them if necessary.
-
+Port Conflicts:
+Ensure no other services are running on ports 8081 or 5002. Use lsof -i :<port> to check and kill -9 <PID> to stop them if necessary.
