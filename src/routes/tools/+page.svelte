@@ -28,7 +28,7 @@
   <ul>
     <li><strong>CryptoHunter:</strong> Identifies high-demand coins suitable for scalping.</li>
     <li><strong>News Section:</strong> Displays relevant fundamental news for the day.</li>
-    <li><strong>RSI Heat Map:</strong> Shows an RSI map with selectable timeframes (1 hour, 4 hours, 1 day).</li>
+    <li><strong>RSI Heat Map:</strong> Shows an 1 day RSI map.</li>
   </ul>
 
   <nav class="button-group">
