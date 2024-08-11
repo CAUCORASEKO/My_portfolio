@@ -1,16 +1,16 @@
 <script>
-  // Establece la URL del heatmap directamente
+   // Aseta heatmapin URL suoraan
   let heatmapUrl = 'https://rsiheatmap-production.up.railway.app/';
 </script>
 
 <main class="widget-container">
   <h1>RSI Heatmap</h1>
   {#if heatmapUrl}
-    <!-- Muestra la imagen del heatmap si la URL está disponible -->
+    <!-- Näytä heatmap-kuva, jos URL on saatavilla -->
     <img src={heatmapUrl} alt="RSI Heatmap" />
   {:else}
-    <!-- Muestra un mensaje de carga hasta que se obtenga el heatmap -->
-    <p>Cargando heatmap...</p>
+    <!-- Näytä latausviesti, kunnes heatmap on haettu -->
+    <p>Loading heatmap...</p>
   {/if}
 </main>
 
@@ -24,14 +24,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 100%; /* Asegura que el contenedor no sobrepase el ancho de la pantalla */
-    height: auto; /* Permite que la altura se ajuste según el contenido */
+    max-width: 100%; /* Varmistaa, että kontti ei ylitä näytön leveyttä */
+    height: auto; /* Salli korkeuden mukautuminen sisällön mukaan */
   }
 
   img {
     max-width: 100%;
     height: auto;
-    object-fit: contain; /* Asegura que la imagen se ajuste bien dentro del contenedor */
+    object-fit: contain; /* Varmistaa, että kuva mahtuu hyvin kontin sisään */
   }
 </style>
 
