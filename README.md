@@ -112,12 +112,14 @@ Project Link: https://github.com/CAUCORASEKO/My_portfolio
 License
 
 This project is licensed under the MIT License.
+
 Resources
 
     Init SvelteKit w. TailwindCSS: TailwindCSS Guide
     Google Fonts: Google Fonts
     Font Awesome CDN: Font Awesome CDN
     Font Awesome Icons: Font Awesome Icons
+    Particles js: https://cdnjs.com/libraries/particles.js
 
 Steps to Restart the Project After Reboot
 
@@ -166,16 +168,3 @@ Troubleshooting Tips
     Port Conflicts:
         Ensure no other services are running on ports 8081 or 5002. Use lsof -i :<port> to check and kill -9 <PID> to stop them if necessary.
 
-markdown
-
-
-### Steps to push the changes to GitHub:
-
-1. **Save the `README.md` file** after making the changes.
-2. **Open your terminal** in the repository folder.
-3. **Run the following commands to commit and push the changes to GitHub:**
-
-
-git add README.md
-git commit -m "Added RSI Heatmap integration details"
-git push origin main
