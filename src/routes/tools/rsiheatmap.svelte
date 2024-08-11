@@ -1,25 +1,6 @@
 <script>
-  import { onMount } from 'svelte';
-
   // Establece la URL del heatmap directamente
   let heatmapUrl = 'https://rsiheatmap-production.up.railway.app/';
-
-  // Ejecuta este código cuando el componente se haya montado
-  onMount(async () => {
-    try {
-      // Realiza una solicitud para obtener la imagen del heatmap
-      const response = await fetch(heatmapUrl);
-      if (response.ok) {
-        // Si la solicitud es exitosa, convierte la respuesta a blob y crea una URL temporal
-        const blob = await response.blob();
-        heatmapUrl = URL.createObjectURL(blob);
-      } else {
-        console.error('Error al obtener el heatmap:', response.status);
-      }
-    } catch (error) {
-      console.error('Error en la solicitud:', error);
-    }
-  });
 </script>
 
 <main class="widget-container">
@@ -43,10 +24,14 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    max-width: 100%; /* Asegura que el contenedor no sobrepase el ancho de la pantalla */
+    height: auto; /* Permite que la altura se ajuste según el contenido */
   }
 
   img {
     max-width: 100%;
     height: auto;
+    object-fit: contain; /* Asegura que la imagen se ajuste bien dentro del contenedor */
   }
 </style>
+
