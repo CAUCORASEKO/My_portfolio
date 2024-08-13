@@ -191,41 +191,43 @@ The `package.json` file is a key file in any Node.js project that defines the pr
   "type": "module"
 }
 
-    name: The name of the project.
+name: The name of the project.
 
-    version: The version of the project.
+version: The version of the project.
 
-    private: If set to true, it prevents the project from being accidentally published to the npm registry.
+private: If set to true, it prevents the project from being accidentally published to the npm registry.
 
-    scripts: Defines commands that you can run from the command line using npm run <script>. In this project:
-        dev: Starts the Vite development server in host mode.
-        build: Compiles the project into a production-optimized format.
-        preview: Previews the production build.
-        start: Starts the application using Node.js.
-        start:railway: Configures and launches the application on Railway with the necessary options for deployment.
+scripts: Defines commands that you can run from the command line using npm run <script>. 
 
-    devDependencies: Dependencies required only for project development. It includes tools like Vite, Svelte, TailwindCSS, and PostCSS.
+In this project:
 
-    dependencies: Dependencies required for the project to run in production. It includes adapters for Svelte, libraries like Chart.js, and Nodemailer for sending emails.
+dev: Starts the Vite development server in host mode.
+build: Compiles the project into a production-optimized format.
+preview: Previews the production build.
+start: Starts the application using Node.js.
+start:railway: Configures and launches the application on Railway with the necessary options for deployment.
 
-    type: Indicates that the project uses ECMAScript modules, instead of CommonJS modules.
+devDependencies: Dependencies required only for project development. It includes tools like Vite, Svelte, TailwindCSS, and PostCSS.
 
-package-lock.json
+dependencies: Dependencies required for the project to run in production. It includes adapters for Svelte, libraries like Chart.js, and Nodemailer for sending emails.
+
+type: Indicates that the project uses ECMAScript modules, instead of CommonJS modules.
+
+**package-lock.json**
 
 The package-lock.json file is automatically generated when you run npm install in a project. This file ensures that dependencies are installed in the same way across all machines by locking the exact versions of each package and its sub-dependencies.
 
-This file includes:
+**This file includes**:
 
-    version: The version of the package-lock.json schema.
-    requires: Indicates if the package requires other dependencies.
-    dependencies: A detailed list of each dependency, including its version, integrity, and the versions of its sub-dependencies.
+version: The version of the package-lock.json schema.
+requires: Indicates if the package requires other dependencies.
+dependencies: A detailed list of each dependency, including its version, integrity, and the versions of its sub-dependencies.
 
 The package-lock.json is crucial for maintaining a consistent development environment, ensuring that all developers and deployment environments use the same versions of the project’s dependencies.
 
 
-Project Structure
+**Project Structure**
 
-lua
 
 |-- src
 |   |-- components
@@ -253,44 +255,43 @@ Claudio Valenzuela - latribubooking@gmail.com
 Project Link: https://github.com/CAUCORASEKO/My_portfolio
 License
 
-This project is licensed under the MIT License.
-Resources
+**This project is licensed under the MIT License.**
 
-    Init SvelteKit w. TailwindCSS: TailwindCSS Guide
-    Google Fonts: Google Fonts
-    Font Awesome CDN: Font Awesome CDN
-    Font Awesome Icons: Font Awesome Icons
-    Particles js: Particles.js
+**Resources**
+
+Init SvelteKit w. TailwindCSS: TailwindCSS Guide
+Google Fonts: Google Fonts
+Font Awesome CDN: Font Awesome CDN
+Font Awesome Icons: Font Awesome Icons
+Particles js: Particles.js
 
 Steps to Restart the Project After Reboot
 
-    Open Terminal and navigate to your project directory:
+**Open Terminal and navigate to your project directory**:
 
-    bash
 
 cd ~/Desktop/My_portfolio
 
-Start Docker:
+**Start Docker**:
 
-    Make sure Docker Desktop is running. If it's not, start Docker Desktop from your applications.
+Make sure Docker Desktop is running. If it's not, start Docker Desktop from your applications.
 
-Build the Docker image (if needed):
-
-bash
+**Build the Docker image (if needed)**:
 
 docker build -t my_svelte_app .
 
-Run the Docker container:
+**Run the Docker container**:
 
-bash
+
 
     docker run -p 8081:4173 -p 5002:5001 my_svelte_app
 
-        Ensure there are no port conflicts. If there are, stop the conflicting services or containers and try running the command again.
+Ensure there are no port conflicts. If there are, stop the conflicting services or containers and try running the command again.
 
-    Access the application:
-        For the Svelte application: http://localhost:5173
-        For the API (heatmap): http://localhost:5002/heatmap
+**Access the application**:
+        
+For the Svelte application: http://localhost:5173
+For the API (heatmap): http://localhost:5002/heatmap
 
 **Troubleshooting Tips**
 
