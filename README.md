@@ -229,54 +229,53 @@ The package-lock.json is crucial for maintaining a consistent development enviro
 **Project Structure**
      
 
-    Project Root
-├── src/
-│   ├── components/
-│   │   ├── Footer.svelte
-│   │   ├── Header.svelte
-│   │   ├── Main.svelte
-│   │   ├── Modal.svelte
-│   │   ├── modalStore.js
-│   │   └── Step.svelte
-│   ├── lib/
-│   │   └── index.js
-│   ├── routes/
-│   │   ├── api/
-│   │   │   └── contact.js
-│   │   └── tools/
-│   │       ├── rsi_heatmap/
-│   │       │   ├── __pycache__/
-│   │       │   ├── data.py
-│   │       │   └── main.py
-│   │       ├── cryptohunter.svelte
-│   │       ├── news.svelte
-│   │       ├── rsiheatmap.svelte
-│   │       ├── +layout.svelte
-│   │       └── +page.svelte
-│   ├── app.css
-│   ├── app.html
-│   └── global.css
-├── static/
-│   ├── assets/
-│   ├── images/
-│   └── favicon.png
-├── .env
-├── .gitattributes
-├── .gitignore
-├── .hintrc
-├── .npmrc
-├── Dockerfile
-├── package-lock.json
-├── package.json
-├── postcss.config.cjs
-├── Procfile
-├── README.md
-├── requirements.txt
-├── supervisord.conf
-├── svelte.config.js
-├── tailwind.config.cjs
-├── tailwind.config.js
-└── vite.config.js
+ ├── src/
+ │   ├── components/
+ │   │   ├── Footer.svelte
+ │   │   ├── Header.svelte
+ │   │   ├── Main.svelte
+ │   │   ├── Modal.svelte
+ │   │   ├── modalStore.js
+ │   │   └── Step.svelte
+ │   ├── lib/
+ │   │   └── index.js
+ │   ├── routes/
+ │   │   ├── api/
+ │   │   │   └── contact.js
+ │   │   └── tools/
+ │   │       ├── rsi_heatmap/
+ │   │       │   ├── __pycache__/
+ │   │       │   ├── data.py
+ │   │       │   └── main.py
+ │   │       ├── cryptohunter.svelte
+ │   │       ├── news.svelte
+ │   │       ├── rsiheatmap.svelte
+ │   │       ├── +layout.svelte
+ │   │       └── +page.svelte
+ │   ├── app.css
+ │   ├── app.html
+ │   └── global.css
+ ├── static/
+ │   ├── assets/
+ │   ├── images/
+ │   └── favicon.png
+ ├── .env
+ ├── .gitattributes
+ ├── .gitignore
+ ├── .hintrc
+ ├── .npmrc
+ ├── Dockerfile
+ ├── package-lock.json
+ ├── package.json
+ ├── postcss.config.cjs
+ ├── Procfile
+ ├── README.md
+ ├── requirements.txt
+ ├── supervisord.conf
+ ├── svelte.config.js
+ ├── tailwind.config.cjs
+ ├── tailwind.config.js
+ └── vite.config.js
 
 
       
