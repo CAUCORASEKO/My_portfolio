@@ -292,19 +292,19 @@ bash
         For the Svelte application: http://localhost:5173
         For the API (heatmap): http://localhost:5002/heatmap
 
-Troubleshooting Tips
+**Troubleshooting Tips**
 
-    Check Docker Status:
-        Make sure Docker is running. If you encounter issues, restart Docker Desktop.
+Check Docker Status:
+Make sure Docker is running. If you encounter issues, restart Docker Desktop.
 
-    Check Logs:
+**Check Logs**:
 
-        If the application is not running as expected, check the Docker container logs:
+If the application is not running as expected, check the Docker container logs:
 
-        bash
+bash
 
-    docker logs <container_id>
+docker logs <container_id>
 
-Port Conflicts:
+**Port Conflicts**:
 
-    Ensure no other services are running on ports 8081 or 5002. Use lsof -i :<port> to check and kill -9 <PID> to stop them if necessary.
+Ensure no other services are running on ports 8081 or 5002. Use lsof -i :<port> to check and kill -9 <PID> to stop them if necessary.
