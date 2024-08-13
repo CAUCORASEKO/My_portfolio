@@ -227,9 +227,9 @@ The package-lock.json is crucial for maintaining a consistent development enviro
 
 
 **Project Structure**
+     
 
-
-|-- src
+     |-- src
 |   |-- components
 |   |   |-- Step.svelte
 |   |   |-- rsiheatmap.svelte
@@ -244,6 +244,8 @@ The package-lock.json is crucial for maintaining a consistent development enviro
 |-- package.json
 |-- svelte.config.js
 |-- Dockerfile
+
+      
 
 Contributing
 
