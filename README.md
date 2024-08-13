@@ -229,7 +229,7 @@ The package-lock.json is crucial for maintaining a consistent development enviro
 **Project Structure**
      
 
- \```
+```
 Project Root
 ├── src/
 │   ├── components/
@@ -278,7 +278,7 @@ Project Root
 ├── tailwind.config.cjs
 ├── tailwind.config.js
 └── vite.config.js
-\```
+```
 
 
       
