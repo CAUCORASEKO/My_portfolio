@@ -126,23 +126,23 @@ stdout_logfile=/var/log/svelte.out.log
 
 nodaemon=true: This option runs supervisord in the foreground. It's useful for debugging and ensures that logs are output directly to the terminal, rather than detaching and running as a background process.
 
-    [program
-    ]:
-        command=gunicorn -w 4 -b 0.0.0.0:5001 src.routes.tools.rsi_heatmap.main:app: This command starts the Flask application using Gunicorn with 4 worker processes. The application is bound to all network interfaces on port 5001.
-        directory=/app: Specifies the working directory for the Flask application.
-        autostart=true: Ensures that the Flask program starts automatically when supervisord starts.
-        autorestart=true: Automatically restarts the Flask program if it crashes.
-        stderr_logfile=/var/log/flask.err.log: The log file where standard error output for the Flask program is stored.
-        stdout_logfile=/var/log/flask.out.log: The log file where standard output for the Flask program is stored.
+  [program
+  ]:
+      command=gunicorn -w 4 -b 0.0.0.0:5001 src.routes.tools.rsi_heatmap.main:app: This command starts the Flask application using Gunicorn with 4 worker processes. The application is bound to all network interfaces on port 5001.
+      directory=/app: Specifies the working directory for the Flask application.
+      autostart=true: Ensures that the Flask program starts automatically when supervisord starts.
+      autorestart=true: Automatically restarts the Flask program if it crashes.
+      stderr_logfile=/var/log/flask.err.log: The log file where standard error output for the Flask program is stored.
+      stdout_logfile=/var/log/flask.out.log: The log file where standard output for the Flask program is stored.
 
-    [program
-    ]:
-        command=npm run preview -- --host 0.0.0.0: This command starts the Svelte application in preview mode, making it accessible on all network interfaces.
-        directory=/app: Specifies the working directory for the Svelte application.
-        autostart=true: Ensures that the Svelte program starts automatically when supervisord starts.
-        autorestart=true: Automatically restarts the Svelte program if it crashes.
-        stderr_logfile=/var/log/svelte.err.log: The log file where standard error output for the Svelte program is stored.
-        stdout_logfile=/var/log/svelte.out.log: The log file where standard output for the Svelte program is stored.
+  [program
+  ]:
+      command=npm run preview -- --host 0.0.0.0: This command starts the Svelte application in preview mode, making it accessible on all network interfaces.
+      directory=/app: Specifies the working directory for the Svelte application.
+      autostart=true: Ensures that the Svelte program starts automatically when supervisord starts.
+      autorestart=true: Automatically restarts the Svelte program if it crashes.
+      stderr_logfile=/var/log/svelte.err.log: The log file where standard error output for the Svelte program is stored.
+      stdout_logfile=/var/log/svelte.out.log: The log file where standard output for the Svelte program is stored.
 
 **Usage**
 
@@ -151,17 +151,18 @@ Benefits
 
 **Using supervisord provides the following benefits**:
 
-    Process Management: Automatically starts and restarts your processes, ensuring high availability.
-    Logging: Centralized logging makes it easy to track the output and errors of both the Svelte and Flask applications.
-    Scalability: With Gunicorn managing multiple workers for the Flask app, the system can handle multiple requests concurrently, improving performance.
+  Process Management: Automatically starts and restarts your processes, ensuring high availability.
+  Logging: Centralized logging makes it easy to track the output and errors of both the Svelte and Flask applications.
+  Scalability: With Gunicorn managing multiple workers for the Flask app, the system can handle multiple requests concurrently, improving performance.
 
     
-## JSON Configuration Files
+### JSON Configuration Files
 
 ### package.json
 
 The `package.json` file is a key file in any Node.js project that defines the project's details, manages dependencies, and scripts. Below is an explanation of each section in our `package.json`:
 
+```
 {
   "name": "cauco",
   "version": "0.0.1",
@@ -190,7 +191,7 @@ The `package.json` file is a key file in any Node.js project that defines the pr
   },
   "type": "module"
 }
-
+```
 name: The name of the project.
 
 version: The version of the project.
