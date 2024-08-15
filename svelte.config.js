@@ -1,14 +1,15 @@
-import adapter from '@sveltejs/adapter-node'; // Vaihda sovitinsolmuun, jos käytät Node.js:ää
-import { vitePreprocess } from '@sveltejs/kit/vite';
+import adapter from '@sveltejs/adapter-node';
+import { sveltePreprocess } from 'svelte-preprocess';
 
-/** @type {import('@sveltejs/kit').Config} */
-const config = {
+
+
+export default {
   kit: {
-    // Käytä Node.js-sovitinta
-    adapter: adapter()
+    adapter: adapter(),
   },
-  preprocess: vitePreprocess()
+  preprocess: sveltePreprocess(),
 };
 
-export default config;
+
+
 
