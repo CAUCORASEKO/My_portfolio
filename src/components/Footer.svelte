@@ -17,7 +17,7 @@
             <a href="https://instagram.com/MandaCoin" target="_blank" class="text-white hover:text-violet-600 transition-colors duration-300">
                 <i class="fa-brands fa-square-instagram fa-lg"></i>
             </a>
-            <a href="https://linkedin.com/in/CAUCO" target="_blank" class="text-white hover:text-violet-600 transition-colors duration-300">
+            <a href="https://linkedin.com/in/multimedia3d" target="_blank" class="text-white hover:text-violet-600 transition-colors duration-300">
                 <i class="fa-brands fa-linkedin fa-lg"></i>
             </a>
             <a href="https://github.com/CAUCORASEKO" target="_blank" class="text-white hover:text-violet-600 transition-colors duration-300">
