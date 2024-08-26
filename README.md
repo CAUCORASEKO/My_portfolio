@@ -432,8 +432,8 @@ Muutokset:
 
 Alkuperäinen RSI-lämpökoodia mukautettiin vastaamaan erityisiä käyttöönoton tarpeitamme, mukaan lukien:
 
-    Polun säätäminen: Kuvan tallennus- ja tarjoilupolun muokkaaminen yhteensopivuuden varmistamiseksi Railway-hosting-ympäristön kanssa.
-    CORS-käsittely: CORS-otsikoiden lisääminen Flask-taustapalvelimeen mahdollistamaan cross-origin-pyynnöt Svelte-sovelluksesta.
+  Polun säätäminen: Kuvan tallennus- ja tarjoilupolun muokkaaminen yhteensopivuuden varmistamiseksi Railway-hosting-ympäristön kanssa.
+  CORS-käsittely: CORS-otsikoiden lisääminen Flask-taustapalvelimeen mahdollistamaan cross-origin-pyynnöt Svelte-sovelluksesta.
 
 Kiitokset:
 
@@ -466,24 +466,34 @@ stdout_logfile=/var/log/svelte.out.log
 
 Selitys:
 
-    [supervisord]:
-        nodaemon=true: Tämä asetus suorittaa supervisordin etualalla. Se on hyödyllinen vianetsinnässä ja varmistaa, että lokit tulostetaan suoraan terminaaliin sen sijaan, että ne irtoaisivat ja toimisivat taustaprosessina.
+  [supervisord]:
+
+    nodaemon=true: Tämä asetus suorittaa supervisordin etualalla. Se on hyödyllinen vianetsinnässä ja varmistaa, että lokit tulostetaan suoraan terminaaliin sen sijaan, että ne irtoaisivat ja toimisivat taustaprosessina.
 
     [program:flask]:
-        command=gunicorn -w 4 -b 0.0.0.0:5001 src.routes.tools.rsi_heatmap.main:app: Tämä komento käynnistää Flask-sovelluksen käyttämällä Gunicornia neljän työntekijäprosessin kanssa. Sovellus on sidottu kaikkiin verkkoliitäntöihin portissa 5001.
-        directory=/app: Määrittää Flask-sovelluksen työkirjaston.
-        autostart=true: Varmistaa, että Flask-ohjelma käynnistyy automaattisesti, kun supervisord käynnistyy.
-        autorestart=true: Käynnistää Flask-ohjelman automaattisesti uudelleen, jos se kaatuu.
-        stderr_logfile=/var/log/flask.err.log: Lokitiedosto, johon Flask-ohjelman virhelokit tallennetaan.
-        stdout_logfile=/var/log/flask.out.log: Lokitiedosto, johon Flask-ohjelman tulostuslokit tallennetaan.
+
+    command=gunicorn -w 4 -b 0.0.0.0:5001 src.routes.tools.rsi_heatmap.main:app: Tämä komento käynnistää Flask-sovelluksen käyttämällä Gunicornia neljän työntekijäprosessin kanssa. Sovellus on sidottu kaikkiin verkkoliitäntöihin portissa 5001.
+
+    directory=/app: Määrittää Flask-sovelluksen työkirjaston.
+
+    autostart=true: Varmistaa, että Flask-ohjelma käynnistyy automaattisesti, kun supervisord käynnistyy.
+
+    autorestart=true: Käynnistää Flask-ohjelman automaattisesti uudelleen, jos se kaatuu.
+    stderr_logfile=/var/log/flask.err.log: Lokitiedosto, johon Flask-ohjelman virhelokit tallennetaan.
+
+    stdout_logfile=/var/log/flask.out.log: Lokitiedosto, johon Flask-ohjelman tulostuslokit tallennetaan.
 
     [program:svelte]:
-        command=npm run preview -- --host 0.0.0.0: Tämä komento käynnistää Svelte-sovelluksen esikatselutilassa, mikä tekee siitä käytettävissä kaikilla verkkoliitännöillä.
-        directory=/app: Määrittää Svelte-sovelluksen työkirjaston.
-        autostart=true: Varmistaa, että Svelte-ohjelma käynnistyy automaattisesti, kun supervisord käynnistyy.
-        autorestart=true: Käynnistää Svelte-ohjelman automaattisesti uudelleen, jos se kaatuu.
-        stderr_logfile=/var/log/svelte.err.log: Lokitiedosto, johon Svelte-ohjelman virhelokit tallennetaan.
-        stdout_logfile=/var/log/svelte.out.log: Lokitiedosto, johon Svelte-ohjelman tulostuslokit tallennetaan.
+
+    command=npm run preview -- --host 0.0.0.0: Tämä komento käynnistää Svelte-sovelluksen esikatselutilassa, mikä tekee siitä käytettävissä kaikilla verkkoliitännöillä.
+    directory=/app: Määrittää Svelte-sovelluksen työkirjaston.
+
+    autostart=true: Varmistaa, että Svelte-ohjelma käynnistyy automaattisesti, kun supervisord käynnistyy.
+
+    autorestart=true: Käynnistää Svelte-ohjelman automaattisesti uudelleen, jos se kaatuu.
+    stderr_logfile=/var/log/svelte.err.log: Lokitiedosto, johon Svelte-ohjelman virhelokit tallennetaan.
+
+    stdout_logfile=/var/log/svelte.out.log: Lokitiedosto, johon Svelte-ohjelman tulostuslokit tallennetaan.
 
 Käyttö:
 
@@ -492,9 +502,9 @@ Hyödyt:
 
 Supervisorin käytön edut ovat seuraavat:
 
-    Prosessien hallinta: Käynnistää ja käynnistää prosessisi automaattisesti varmistaen korkean käytettävyyden.
-    Kirjaaminen: Keskitetty kirjaaminen helpottaa sekä Svelte- että Flask-sovellusten tulostuksen ja virheiden seurantaa.
-    Skaalautuvuus: Kun Gunicorn hallitsee useita työntekijöitä Flask-sovelluksessa, järjestelmä voi käsitellä useita pyyntöjä samanaikaisesti, mikä parantaa suorituskykyä.
+  Prosessien hallinta: Käynnistää ja käynnistää prosessisi automaattisesti varmistaen korkean käytettävyyden.
+  Kirjaaminen: Keskitetty kirjaaminen helpottaa sekä Svelte- että Flask-sovellusten tulostuksen ja virheiden seurantaa.
+  Skaalautuvuus: Kun Gunicorn hallitsee useita työntekijöitä Flask-sovelluksessa, järjestelmä voi käsitellä useita pyyntöjä samanaikaisesti, mikä parantaa suorituskykyä.
 
 JSON-konfiguraatiotiedostot
 package.json
@@ -531,20 +541,20 @@ package.json-tiedosto on keskeinen tiedosto missä tahansa Node.js-projektissa, 
   "type": "module"
 }
 ```
-    name: Projektin nimi.
+name: Projektin nimi.
 
-    version: Projektin versio.
+version: Projektin versio.
 
-    private: Jos asetettu true, estää projektin vahingossa julkaisemisen npm-rekisteriin.
+private: Jos asetettu true, estää projektin vahingossa julkaisemisen npm-rekisteriin.
 
-    scripts: Määrittää komennot, joita voit suorittaa komentoriviltä käyttämällä npm run <skripti>.
+scripts: Määrittää komennot, joita voit suorittaa komentoriviltä käyttämällä npm run <skripti>.
 
     Tässä projektissa:
-        dev: Käynnistää Vite-kehityspalvelimen isäntätilassa.
-        build: Kääntää projektin tuotanto-optimoiduksi.
-        preview: Esikatselee tuotantoversiota.
-        start: Käynnistää sovelluksen käyttäen Node.js:ää.
-        start:railway: Määrittää ja käynnistää sovelluksen Railwayllä tarvittavilla käyttöönottovaihtoehdoilla.
+      dev: Käynnistää Vite-kehityspalvelimen isäntätilassa.
+      build: Kääntää projektin tuotanto-optimoiduksi.
+      preview: Esikatselee tuotantoversiota.
+      start: Käynnistää sovelluksen käyttäen Node.js:ää.
+      start:railway: Määrittää ja käynnistää sovelluksen Railwayllä tarvittavilla käyttöönottovaihtoehdoilla.
 
     devDependencies: Kehitykseen tarvittavat riippuvuudet. Sisältää työkaluja kuten Vite, Svelte, TailwindCSS ja PostCSS.
 
@@ -558,9 +568,9 @@ package-lock.json-tiedosto luodaan automaattisesti, kun suoritat npm install pro
 
 Tämä tiedosto sisältää:
 
-    version: package-lock.json-skeeman versio.
-    requires: Ilmoittaa, tarvitseeko paketti muita riippuvuuksia.
-    dependencies: Yksityiskohtainen lista jokaisesta riippuvuudesta, mukaan lukien sen versio, eheys ja sen aliriippuvuuksien versiot.
+  version: package-lock.json-skeeman versio.
+  requires: Ilmoittaa, tarvitseeko paketti muita riippuvuuksia.
+  dependencies: Yksityiskohtainen lista jokaisesta riippuvuudesta, mukaan lukien sen versio, eheys ja sen aliriippuvuuksien versiot.
 
 package-lock.json on tärkeä yhdenmukaisen kehitysympäristön ylläpitämiseksi, mikä varmistaa, että kaikki kehittäjät ja käyttöönottoympäristöt käyttävät projektin riippuvuuksien samoja versioita.
 Projektin Rakenne
@@ -630,11 +640,11 @@ Lisenssi
 Tämä projekti on lisensoitu MIT-lisenssillä.
 Resurssit
 
-    Init SvelteKit w. TailwindCSS: TailwindCSS Guide
-    Google Fonts: Google Fonts
-    Font Awesome CDN: Font Awesome CDN
-    Font Awesome Icons: Font Awesome Icons
-    Particles js: Particles.js
+  Init SvelteKit w. TailwindCSS: TailwindCSS Guide
+  Google Fonts: Google Fonts
+  Font Awesome CDN: Font Awesome CDN
+  Font Awesome Icons: Font Awesome Icons
+  Particles js: Particles.js
 
 Projektin Uudelleenkäynnistyksen Vaiheet
 
@@ -666,9 +676,11 @@ Varmista, että ei ole porttien ristiriitoja. Jos niitä on, lopeta ristiriitais
 
 Käytä sovellusta:
 
-    Svelte-sovellukselle: http://localhost:5173
-    API
-    (lämpökartta): http://localhost:5002/heatmap
+  Svelte-sovellukselle: http://localhost:5173
+  
+  API
+
+  (lämpökartta): http://localhost:5002/heatmap
 
 Vianetsintävinkit
 
@@ -678,11 +690,7 @@ Tarkista lokit:
 
 Jos sovellus ei toimi odotetusti, tarkista Docker-kontin lokit:
 
-
-```
 docker logs <container_id>
-
-```
 
 Porttien ristiriidat:
 
