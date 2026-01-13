@@ -1,8 +1,11 @@
 # My Portfolio
+---
 
 A personal portfolio website showcasing my skills, projects, and experience in full-stack web development, with a strong focus on SvelteKit and TailwindCSS. This project serves both as a professional presentation of my work and as a technical playground for experimenting with modern frontend and backend tools.
 
+---
 ## Table of Contents
+---
 
 - Overview
 - Features
@@ -12,6 +15,7 @@ A personal portfolio website showcasing my skills, projects, and experience in f
 - Usage
 - Architecture / Integrations
 - Supervisor Configuration
+- JSON Configuration Files
 - Project Structure
 - Contributing
 - Contact
@@ -20,64 +24,73 @@ A personal portfolio website showcasing my skills, projects, and experience in f
 - Restart Instructions
 - Troubleshooting
 
+---
 ## Overview
+---
 
 This portfolio highlights my experience in full-stack development, UI/UX design, and technical problem-solving. It includes selected projects such as cryptocurrency analysis tools, experimental visualizations, and supporting backend services, all designed to demonstrate clean architecture, maintainability, and real-world development practices.
 
+---
 ## Features
+---
 
-- Responsive UI for desktop, tablet, and mobile
-- Project showcase with technical context and implementation details
-- Modal-based contact and request flow for collaboration inquiries
-- Crypto and trading tools with market indicators and visualizations
-- RSI heatmap visualization for real-time data display
+- Responsive UI for desktop, tablet, and mobile  
+- Project showcase with technical context and implementation details  
+- Modal-based contact and request flow for collaboration inquiries  
+- Crypto and trading tools with market indicators and visualizations  
+- RSI heatmap visualization for real-time data display  
 
+---
 ## Screenshots
+---
 
 ### Home
-
 Landing page presenting my profile, core technologies, and primary navigation.
 
 ![Home](docs/images/home.png)
 
-### About Me
+---
 
+### About Me
 Section describing my background, learning journey, and interests in software development and user experience.
 
 ![About Me](docs/images/about.png)
 
-### Projects
+---
 
+### Projects
 Overview of selected projects, including crypto-related tools and experimental applications.
 
 ![Projects](docs/images/projects.png)
 
-### Contact / Request
+---
 
+### Contact / Request
 Modal-based contact form that allows visitors to submit collaboration or project requests.
 
 ![Request](docs/images/request.png)
 
+---
 ## Technologies
+---
 
 ### Frontend
-
-- SvelteKit
-- TailwindCSS
+- SvelteKit  
+- TailwindCSS  
 
 ### Backend
-
-- Node.js
-- Express.js
-- Flask (Python)
+- Node.js  
+- Express.js  
+- Flask (Python)  
 
 ### Infrastructure & Tooling
+- Docker  
+- Git & GitHub  
+- Netlify / Railway  
 
-- Docker
-- Git & GitHub
-- Netlify / Railway
-
+---
 ## Setup & Installation
+---
 
 Clone the repository and install dependencies:
 
@@ -87,22 +100,28 @@ cd My_portfolio
 npm install --legacy-peer-deps
 ```
 
-Start the development server:
+## Start the development server
 
-```bash
+~~~bash
 npm run dev
-```
+~~~
 
-Access the application:
+---
+
+## Access the application
 
 - Svelte application: http://localhost:5173
+
+---
 
 ## Usage
 
 - Navigate the site to explore Projects, About Me, and other sections.
 - Crypto Trading Bot: access via the provided Telegram link.
 - Tools page: use tools for analyzing the cryptocurrency market.
-- RSI Heatmap: available at http://localhost:5173/tools.
+- RSI Heatmap: available at http://localhost:5173/tools
+
+---
 
 ## Architecture / Integrations
 
@@ -133,13 +152,15 @@ The original RSI heatmap code was adapted to fit deployment requirements:
 
 The RSI heatmap implementation is based on the work of Stephan Akkerman.
 
+---
+
 ## Supervisor Configuration
 
 This project uses supervisord to manage and monitor both the Svelte frontend and the Flask backend processes. Supervisor ensures that each service starts automatically, restarts on failure, and produces structured logs.
 
-`supervisord.conf` configuration:
+### supervisord.conf configuration
 
-```ini
+~~~ini
 [supervisord]
 nodaemon=true
 
@@ -158,7 +179,9 @@ autostart=true
 autorestart=true
 stderr_logfile=/var/log/svelte.err.log
 stdout_logfile=/var/log/svelte.out.log
-```
+~~~
+
+---
 
 ### Explanation
 
@@ -174,11 +197,15 @@ stdout_logfile=/var/log/svelte.out.log
 
 Start supervisord using this configuration in your Docker container or server to automatically manage the Svelte and Flask processes.
 
+---
+
 ### Benefits
 
 - Process management with automatic restarts
 - Centralized logging
 - Improved concurrency with Gunicorn workers
+
+---
 
 ## JSON Configuration Files
 
@@ -186,7 +213,7 @@ Start supervisord using this configuration in your Docker container or server to
 
 The `package.json` file defines the project details, manages dependencies, and scripts.
 
-```json
+~~~json
 {
   "name": "cauco",
   "version": "0.0.1",
@@ -215,9 +242,11 @@ The `package.json` file defines the project details, manages dependencies, and s
   },
   "type": "module"
 }
-```
+~~~
 
-Key fields:
+---
+
+### Key Fields
 
 - `name`: project name
 - `version`: project version
@@ -227,7 +256,9 @@ Key fields:
 - `dependencies`: production dependencies
 - `type`: ECMAScript module configuration
 
-Scripts in this project:
+---
+
+### Scripts in This Project
 
 - `dev`: starts the Vite development server in host mode
 - `build`: builds the production bundle
@@ -237,19 +268,20 @@ Scripts in this project:
 
 ### package-lock.json
 
-The `package-lock.json` file is generated by npm install and locks the exact versions of dependencies and sub-dependencies.
+The `package-lock.json` file is generated by `npm install` and locks the exact versions of dependencies and sub-dependencies to ensure reproducible installs.
 
-It includes:
-
+**It includes:**
 - `version`: package-lock schema version
 - `requires`: whether dependencies are required
-- `dependencies`: resolved versions, integrity, and sub-dependencies
+- `dependencies`: resolved versions, integrity hashes, and sub-dependencies
 
-This ensures consistent dependency installs across environments.
+This guarantees consistent dependency installation across all environments.
+
+---
 
 ## Project Structure
 
-```
+~~~text
 Project Root
 ├── src/
 │   ├── components/
@@ -298,68 +330,80 @@ Project Root
 ├── tailwind.config.cjs
 ├── tailwind.config.js
 └── vite.config.js
-```
+~~~
 
 ## Contributing
 
-Contributions are welcome. Please fork this repository and submit a pull request for improvements or additions.
+Contributions are welcome 🙌  
+Please fork this repository and submit a pull request for improvements or additions.
+
+---
 
 ## Contact
 
-Claudio Valenzuela - claudio@aisosu.fi  
-Project Link: https://github.com/CAUCORASEKO/My_portfolio
+**Claudio Valenzuela**  
+📧 Email: claudio@aisosu.fi  
+🔗 Project Link: https://github.com/CAUCORASEKO/My_portfolio
+
+---
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the **MIT License**.
+
+---
 
 ## Resources
 
-- TailwindCSS Guide
-- Google Fonts
-- Font Awesome CDN
-- Font Awesome Icons
-- Particles.js
+- TailwindCSS Guide  
+- Google Fonts  
+- Font Awesome CDN  
+- Font Awesome Icons  
+- Particles.js  
+
+---
 
 ## Restart Instructions
 
-Open Terminal and navigate to the project directory:
+Open a terminal and navigate to the project directory:
 
-```bash
+~~~bash
 cd ~/Desktop/My_portfolio
-```
+~~~
 
-Start Docker and ensure Docker Desktop is running.
+Start Docker and ensure **Docker Desktop** is running.
 
 Build the Docker image (if needed):
 
-```bash
+~~~bash
 docker build -t my_svelte_app
-```
+~~~
 
 Run the Docker container:
 
-```bash
+~~~bash
 docker run -p 8081:4173 -p 5002:5001 my_svelte_app
-```
+~~~
 
 Access the application:
 
-- Svelte application: http://localhost:5173
-- API (heatmap): http://localhost:5002/heatmap
+- **Svelte application:** http://localhost:5173  
+- **API (heatmap):** http://localhost:5002/heatmap  
+
+---
 
 ## Troubleshooting
 
 - Check Docker status and restart Docker Desktop if needed.
 - Inspect container logs:
 
-```bash
+~~~bash
 docker logs <container_id>
-```
+~~~
 
-- Resolve port conflicts on 8081 or 5002:
+- Resolve port conflicts on **8081** or **5002**:
 
-```bash
+~~~bash
 lsof -i :<port>
 kill -9 <PID>
-```
+~~~
