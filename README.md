@@ -155,14 +155,14 @@ This RSI heatmap implementation is based on the work of Stephan Akkerman.
 
 ---
 
-**Supervisor Configuration**
+## Supervisor Configuration
 
-The project uses supervisord to manage and monitor the Svelte frontend and Flask backend processes. Below is an overview of the supervisord.conf file used in this project:
+This project uses **supervisord** to manage and monitor both the Svelte frontend and the Flask backend processes.
+Supervisor ensures that each service starts automatically, restarts on failure, and produces structured logs.
 
----
+Below is the `supervisord.conf` configuration used in this project.
 
-**Configuration File supervisord.conf**:
-
+```ini
 [supervisord]
 nodaemon=true
 
