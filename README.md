@@ -151,7 +151,7 @@ CORS handling: Added CORS headers to the Flask backend to allow cross-origin req
 
 **Credit**:
         
-This RSI heatmap implementation is based on the work of Stephan Akkerman. You can find the original repository here.
+This RSI heatmap implementation is based on the work of Stephan Akkerman.
 
 ---
 
